@@ -210,7 +210,7 @@
 
       # Virtualization ---------------------
       wineWowPackages.stableFull
-      bottles
+      # bottles
       boxbuddy
       distrobox
       podman                                     # ! [inject insecure null policy json]
