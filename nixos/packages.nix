@@ -218,7 +218,7 @@
 
       # Languages --------------------------
       micromamba
-      julia                                      # Install the same version with Juliaup and install packages via distrobox
+      # julia                                    # Install via scientific fhs
       typst
       # wolfram-engine
       # wolfram-notebook
