@@ -20,12 +20,12 @@
     };
 
   fileSystems."/" =
-    { device = "/dev/by-label/root";
+    { device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
   
   fileSystems."/run/media/sparsharay/groot" =
-    { device = "/dev/by-label/groot";
+    { device = "/dev/disk/by-label/groot";
       fsType = "ext4";
     };
 

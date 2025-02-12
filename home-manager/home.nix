@@ -18,6 +18,31 @@
     ./scientific-fhs.nix
   ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.fish = {
+    enable = true;
+    functions = {
+      fish_greeting = "echo $hostname && date +%s | md5sum";
+    };
+  };
+
+  programs.starship = {
+      enable = true;
+      enableFishIntegration = true;
+      settings = (with builtins; fromTOML (
+          readFile (
+              fetchurl {
+                  url = "https://starship.rs/presets/toml/jetpack.toml";
+                  sha256 = "sha256:05qy2n35hnd3vjvzxvjffnmwjjz291y1c7xr2vy4vzn2fzvkkqyq";
+              }
+          )
+      )) // {};
+  };
+
   nixpkgs = {
     # You can add overlays here
     overlays = [

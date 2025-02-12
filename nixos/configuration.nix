@@ -76,6 +76,7 @@
     # For multithreading ------------------------
     environment.variables = {
       NIX_BUILD_CORES = 16;
+      FLAKE = "/run/media/sparsharay/groot/Softwares/LI2i1-14AHP9_spconfig/Nix/";
     };
 
     # X11 fallback for wayland ------------------
@@ -230,6 +231,13 @@
 
     # Enable Plasma DE --------------------------
     services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.theme = "breeze";
+    environment.systemPackages = [
+      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+        [General]
+        background=/run/media/sparsharay/groot/Media/Desktop_wallpapers/16.png
+      '')
+    ];
     services.desktopManager.plasma6.enable = true;
 
     # Enable Hyprland ---------------------------

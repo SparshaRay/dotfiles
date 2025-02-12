@@ -1,8 +1,25 @@
 {
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   # Packages -------------------------------------------------------------
+
+
+    programs.fish = {
+        enable = true;
+        shellInit = ''
+          eval "$(micromamba shell hook --shell fish)"
+          starship init fish | source
+          direnv hook fish | source
+        '';
+        # interactiveShellInit = ''
+        #   set fish_greeting # Disable greeting
+        # '';
+    };
+
+    # Nix-ld ------------------------------------
+    programs.nix-ld.enable = true;
 
     # Firefox -----------------------------------
     programs.firefox.enable = true;
@@ -14,31 +31,17 @@
     };
 
     # ZSH ---------------------------------------
-    users.defaultUserShell = pkgs.zsh;
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      shellAliases = {
-        ez = "eza -la --long --tree --icons --git";
-        zd = "zoxide";
-        nt = "echo \"pw? : \" && sudo nixos-rebuild test --log-format internal-json -v |& nom --json";
-        ns = "echo \"pw? : \" && sudo nixos-rebuild switch --log-format internal-json -v |& nom --json";
-        update = "echo \"pw? : \" && sudo nixos-rebuild switch --upgrade-all --log-format internal-json -v |& nom --json";
-        fuck = "thefuck";
-      };
-      ohMyZsh = {
-        enable = true;
-        plugins = [ "git" "thefuck"];
-      };
-    };
+    users.defaultUserShell = pkgs.fish;
 
     # All other packages ------------------------
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = (with pkgs; [
 
       # CLI and system utilities -----------
+        # Fish Plugins ----------
+        fishPlugins.z
+        fishPlugins.fzf-fish
+        fishPlugins.sponge
+        fishPlugins.colored-man-pages
         # Make & build utils ----
         cmake
         gnumake
@@ -129,7 +132,7 @@
       # Miscellaneous utilities ------------
         # Networking and internet -----
         cloudflare-warp
-        protonvpn-gui
+        # protonvpn-gui
         rclone-browser
         rclone
         brave
@@ -203,10 +206,10 @@
           sageWithDoc
 
       # Ricing utils -----------------------
-      rofi
-      eww
+      # rofi
+      # eww
       kdePackages.qtstyleplugin-kvantum
-      # latte-dock                               # Enable when needed
+      latte-dock                               # Enable when needed
 
       # Virtualization ---------------------
       wineWowPackages.stableFull
@@ -218,6 +221,7 @@
 
       # Languages --------------------------
       micromamba
+      # uv
       # julia                                    # Install via scientific fhs
       typst
       # wolfram-engine
@@ -225,7 +229,7 @@
 
       # Bengali keyboard -------------------
       fcitx5-openbangla-keyboard
-      # ibus-engines.openbangla-keyboard
+      ibus-engines.openbangla-keyboard
 
       # # Pending --------------------------
       # !TODO
@@ -244,7 +248,10 @@
       oneko
       neofetch
 
-    ];
+    ]) ++ (with pkgs-unstable; [
+      # Unstable packages -------------------
+      uv
+    ]);
 
 
 
