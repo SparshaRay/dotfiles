@@ -26,6 +26,8 @@
     ./packages.nix
   ];
 
+  # virtualisation.docker.enable = true;
+
   nixpkgs = {
     # You can add overlays here
     overlays = [

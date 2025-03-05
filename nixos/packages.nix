@@ -18,6 +18,9 @@
         # '';
     };
 
+    # programs.nh.enable = true;
+    programs.java.enable = true;
+
     # Nix-ld ------------------------------------
     programs.nix-ld.enable = true;
 
@@ -72,7 +75,8 @@
         diffsitter
         micro
         nix-output-monitor
-        nh
+        minicom
+        # nh
         nvd
         comma
         thefuck
@@ -201,6 +205,7 @@
         # Scientific ------------------
           octaveFull
           scilab-bin
+          gnuastro
           # geogebra6
           geogebra
           sageWithDoc
@@ -251,6 +256,7 @@
     ]) ++ (with pkgs-unstable; [
       # Unstable packages -------------------
       uv
+      nh
     ]);
 
 

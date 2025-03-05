@@ -20,6 +20,7 @@
 
   programs.direnv = {
     enable = true;
+    silent = true;
     nix-direnv.enable = true;
   };
 
@@ -31,16 +32,17 @@
   };
 
   programs.starship = {
-      enable = true;
-      enableFishIntegration = true;
-      settings = (with builtins; fromTOML (
-          readFile (
-              fetchurl {
-                  url = "https://starship.rs/presets/toml/jetpack.toml";
-                  sha256 = "sha256:05qy2n35hnd3vjvzxvjffnmwjjz291y1c7xr2vy4vzn2fzvkkqyq";
-              }
-          )
-      )) // {};
+    enable = true;
+    enableFishIntegration = true;
+    settings = (with builtins; fromTOML (
+      readFile "/run/media/sparsharay/groot/Codes/Nix/home-manager/starship.toml"
+      # readFile (
+      #     fetchurl {
+      #         url = "https://starship.rs/presets/toml/nerd-font-symbols.toml";
+      #         sha256 = "sha256:1bk2bb4nfwppg0gz4yyid4prdcf5r7yis0h4x10l8blvzlzm452g";
+      #     }
+      # )
+    )) // {};
   };
 
   nixpkgs = {
