@@ -10,7 +10,6 @@
         enable = true;
         shellInit = ''
           eval "$(micromamba shell hook --shell fish)"
-          starship init fish | source
           direnv hook fish | source
         '';
         # interactiveShellInit = ''
@@ -26,6 +25,8 @@
 
     # Firefox -----------------------------------
     programs.firefox.enable = true;
+
+    # Git ---------------------------------------
     programs.git = {
       enable = true;
       config = {
@@ -43,8 +44,13 @@
         # Fish Plugins ----------
         fishPlugins.z
         fishPlugins.fzf-fish
+        fishPlugins.fifc
         fishPlugins.sponge
         fishPlugins.colored-man-pages
+        fishPlugins.tide
+        fishPlugins.plugin-sudope
+        fishPlugins.autopair
+        fishPlugins.fish-bd
         # Make & build utils ----
         cmake
         gnumake
@@ -94,6 +100,8 @@
         util-linux
         procps
         exfatprogs
+        ntfs3g
+        unixtools.quota
         # Wireless utils --------
         iw
         iproute2
@@ -101,6 +109,7 @@
         hostapd
         iptables
         wirelesstools
+        librespeed-cli
         # Input utils -----------
         ibus
         # Maintenance utils -----
@@ -174,6 +183,7 @@
           ocrmypdf
           obsidian
           xournalpp
+          activitywatch
         # Messaging -------------------
           telegram-desktop
           discord
@@ -183,13 +193,14 @@
           blanket
           vlc
           audacity
+          # davinci-resolve
         # Electronics -----------------
           arduino
           ngspice
           kicad
         # Coding ----------------------
           processing
-          vscode
+          # vscode
           github-desktop
         # Image processing ------------
           siril
@@ -214,11 +225,13 @@
       # rofi
       # eww
       kdePackages.qtstyleplugin-kvantum
-      latte-dock                               # Enable when needed
+      latte-dock                                # Enable when needed
 
       # Virtualization ---------------------
       wineWowPackages.stableFull
-      # bottles
+      winetricks
+      bottles
+      quickemu
       boxbuddy
       distrobox
       podman                                     # ! [inject insecure null policy json]
@@ -233,8 +246,8 @@
       # wolfram-notebook
 
       # Bengali keyboard -------------------
-      fcitx5-openbangla-keyboard
-      ibus-engines.openbangla-keyboard
+      # fcitx5-openbangla-keyboard
+      # ibus-engines.openbangla-keyboard
 
       # # Pending --------------------------
       # !TODO
@@ -257,6 +270,7 @@
       # Unstable packages -------------------
       uv
       nh
+      vscode
     ]);
 
 

@@ -67,8 +67,8 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
 
   # Storage optimization and auto garbage collect ------------------
-    gc.automatic = true;
-    optimise.automatic = true;
+    # gc.automatic = true;
+    # optimise.automatic = true;
   };
 
   # FIXME: Add the rest of your current configuration
@@ -109,7 +109,7 @@
     hardware.enableRedistributableFirmware = true;
 
     # For samba ---------------------------------
-    services.samba.enable = true;
+    # services.samba.enable = true;
 
     # For preload -------------------------------
     services.preload.enable = true;
@@ -127,6 +127,10 @@
     # For hotspot -------------------------------
     # services.hostapd.enable = true;
     # services.dnsmasq.enable = true;
+
+    # For disabling man pages -------------------
+    documentation.man.enable = false;
+    documentation.info.enable = false;
 
     # For tlp -----------------------------------
     services.power-profiles-daemon.enable = false;
@@ -195,6 +199,7 @@
 
     # Enable networking -------------------------
     networking.networkmanager.enable = true;
+    systemd.services.NetworkManager-wait-online.enable = false;
     # networking.wireless.enable = true;         # Enables wireless support via wpa_supplicant
 
     # Proxy settings ----------------------------
@@ -232,19 +237,14 @@
     # services.xserver.displayManager.gdm.wayland = true;
 
     # Enable Plasma DE --------------------------
-    services.displayManager.sddm.enable = true;
-    services.displayManager.sddm.theme = "breeze";
-    environment.systemPackages = [
-      (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-        [General]
-        background=/run/media/sparsharay/groot/Media/Desktop_wallpapers/16.png
-      '')
-    ];
     services.desktopManager.plasma6.enable = true;
 
-    # Enable Hyprland ---------------------------
-    # programs.hyprland.enable = true;
-    # programs.hyprland.xwayland.enable = true;
+    # Enable ly ---------------------------------
+    services.displayManager.ly.enable = true;
+    services.displayManager.ly.settings = {
+      asterisk = "_";
+      clock = "%c";
+    };
 
     # ! Import ICM file separately --------------
     # [sRGB Color Space Profile.icm]

@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Idk anything what is going on here, but it works";
 
   inputs = {
     # Nixpkgs
@@ -11,7 +11,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # scientific-fhs
-    scientific-fhs.url = "github:manuelbb-upb/scientific-fhs";
+    scientific-fhs.url = "github:Vortriz/scientific-fhs";
   };
 
   outputs = {
