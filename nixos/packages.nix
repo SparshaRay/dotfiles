@@ -5,7 +5,7 @@
 }: {
   # Packages -------------------------------------------------------------
 
-
+   # Fish shell ---------------------------------
     programs.fish = {
         enable = true;
         shellInit = ''
@@ -36,6 +36,12 @@
 
     # ZSH ---------------------------------------
     users.defaultUserShell = pkgs.fish;
+
+    # virt-manager ------------------------------
+    # programs.virt-manager.enable = true;
+    # users.groups.libvirtd.members = ["sparsharay"];
+    # virtualisation.libvirtd.enable = true;
+    # virtualisation.spiceUSBRedirection.enable = true;
 
     # All other packages ------------------------
     environment.systemPackages = (with pkgs; [
@@ -85,8 +91,8 @@
         # nh
         nvd
         comma
-        thefuck
         nushell
+        shfmt
         # Network utils ---------
         curl
         avahi
@@ -122,6 +128,8 @@
         aescrypt
         unrar
         ffmpeg_7-full
+        preload
+        samba
 
       # Hardware utilities -----------------
         # Processor utils --------
@@ -230,19 +238,24 @@
       # Virtualization ---------------------
       wineWowPackages.stableFull
       winetricks
-      bottles
       quickemu
+      bottles
       boxbuddy
       distrobox
       podman                                     # ! [inject insecure null policy json]
       appimage-run                               # ! [inject lib<>.so path via ENV manually]
-
+      
       # Languages --------------------------
       micromamba
+      typst
+      # ruby
+      # rustc
+      # cargo
+      # meson
       # uv
       # julia                                    # Install via scientific fhs
-      typst
-      # wolfram-engine
+      # docker
+      # wolfram-engine                           # install wljs notebook in ubuntu
       # wolfram-notebook
 
       # Bengali keyboard -------------------
@@ -254,11 +267,11 @@
       # ibus-avro
       # maliit-framework
       # maliit-keyboard
+      # onboard
       # fusuma
       # ydotool
       # newm / niri
       # filecxx
-      # mathematica wljs notebook
       # wvkbd
       # kitty
 

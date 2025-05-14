@@ -37,7 +37,7 @@
             inherit system;
             config.allowUnfree = true;
           };
-          };
+        };
         # > Our main nixos configuration file <
         modules = [./nixos/configuration.nix];
       };

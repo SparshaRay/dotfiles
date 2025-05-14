@@ -242,7 +242,7 @@
     # Enable ly ---------------------------------
     services.displayManager.ly.enable = true;
     services.displayManager.ly.settings = {
-      asterisk = "_";
+      asterisk = ".";
       clock = "%c";
     };
 
