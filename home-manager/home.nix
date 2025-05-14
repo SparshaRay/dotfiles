@@ -14,22 +14,8 @@
     inputs.scientific-fhs.nixosModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-    ./scientific-fhs.nix
+    ./programs # this is equivalent to ./programs/default.nix
   ];
-
-  programs.direnv = {
-    enable = true;
-    silent = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.fish = {
-    enable = true;
-    functions = {
-      fish_greeting = "echo $hostname && date +%s | md5sum";
-    };
-  };
 
   nixpkgs = {
     # You can add overlays here
@@ -58,10 +44,6 @@
     username = "sparsharay";
     homeDirectory = "/home/sparsharay";
   };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

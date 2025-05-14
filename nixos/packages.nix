@@ -6,7 +6,14 @@
 }: {
   # Packages -------------------------------------------------------------
 
-   # Fish shell ---------------------------------
+    # X11 fallback for wayland ------------------
+    programs.xwayland.enable = true;
+
+    # For warp ----------------------------------
+    systemd.packages = [ pkgs.cloudflare-warp ];
+    systemd.targets.multi-user.wants = [ "warp-svc.service" ];
+
+    # Fish shell ---------------------------------
     programs.fish = {
         enable = true;
         shellInit = ''
@@ -34,15 +41,6 @@
         init.defaultBranch = "main";
       };
     };
-
-    # ZSH ---------------------------------------
-    users.defaultUserShell = pkgs.fish;
-
-    # virt-manager ------------------------------
-    # programs.virt-manager.enable = true;
-    # users.groups.libvirtd.members = ["sparsharay"];
-    # virtualisation.libvirtd.enable = true;
-    # virtualisation.spiceUSBRedirection.enable = true;
 
     # All other packages ------------------------
     environment.systemPackages = (with pkgs; [
@@ -287,32 +285,6 @@
         podman                           # ! [inject insecure null policy json]
         boxbuddy
     ]);
-
-
-
-  # Fonts ----------------------------------------------------------------
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      open-fonts
-      helvetica-neue-lt-std
-      lohit-fonts.bengali
-      lohit-fonts.devanagari
-      newcomputermodern
-      (nerdfonts.override { fonts = ["Iosevka"]; })
-      (callPackage ../fonts/HelveticaNeueCyr.nix { })
-      (callPackage ../fonts/SFMono.nix { })
-    ];
-    fontconfig = {
-      defaultFonts = {                             # Order decides fallback
-        serif     = [ "Noto Sans, Noto Sans Bengali, Noto Sans Devanagari"];
-        sansSerif = [ "Noto Sans, Noto Sans Bengali, Noto Sans Devanagari"];
-        monospace = [ "Iosevka Md Ex Obl" ];
-      };
-    };
-  };
-
-
 
   # SUID wrappers --------------------------------------------------------
   # programs.mtr.enable = true;
