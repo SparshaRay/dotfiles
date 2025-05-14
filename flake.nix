@@ -5,6 +5,7 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-pinned.url = "github:nixos/nixpkgs/a39ed32a651fdee6842ec930761e31d1f242cb94";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
@@ -18,6 +19,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    nixpkgs-pinned,
     home-manager,
     ...
   } @ inputs: let
@@ -34,6 +36,11 @@
           inherit inputs outputs;
 
           pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+
+          pkgs-pinned = import nixpkgs-pinned {
             inherit system;
             config.allowUnfree = true;
           };

@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  pkgs-pinned,
   ...
 }: {
   # Packages -------------------------------------------------------------
@@ -162,7 +163,6 @@
         sshuttle
         warp
         # Support ---------------------
-        ventoy
         anydesk
         # Adtnlutils ------------------
         glaxnimate
@@ -240,11 +240,8 @@
       winetricks
       quickemu
       bottles
-      boxbuddy
-      distrobox
-      podman                                     # ! [inject insecure null policy json]
       appimage-run                               # ! [inject lib<>.so path via ENV manually]
-      
+
       # Languages --------------------------
       micromamba
       typst
@@ -284,6 +281,11 @@
       uv
       nh
       vscode
+    ]) ++ (with pkgs-pinned; [
+        ventoy-full
+        distrobox
+        podman                           # ! [inject insecure null policy json]
+        boxbuddy
     ]);
 
 
