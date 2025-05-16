@@ -95,6 +95,8 @@
         # Network utils ---------
         curl
         avahi
+        syncthing
+        syncthingtray
         # System utils ----------
         p7zip
         fzf
