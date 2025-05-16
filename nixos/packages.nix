@@ -16,13 +16,13 @@
     # Fish shell ---------------------------------
     programs.fish = {
         enable = true;
-        shellInit = ''
-          eval "$(micromamba shell hook --shell fish)"
-          direnv hook fish | source
-        '';
-        # interactiveShellInit = ''
-        #   set fish_greeting # Disable greeting
-        # '';
+    #     shellInit = ''
+    #       eval "$(micromamba shell hook --shell fish)"
+    #       direnv hook fish | source
+    #     '';
+    #     # interactiveShellInit = ''
+    #     #   set fish_greeting # Disable greeting
+    #     # '';
     };
 
     # programs.nh.enable = true;
@@ -47,15 +47,15 @@
 
       # CLI and system utilities -----------
         # Fish Plugins ----------
-        fishPlugins.z
-        fishPlugins.fzf-fish
-        fishPlugins.fifc
-        fishPlugins.sponge
-        fishPlugins.colored-man-pages
-        fishPlugins.tide
-        fishPlugins.plugin-sudope
-        fishPlugins.autopair
-        fishPlugins.fish-bd
+        # fishPlugins.z
+        # fishPlugins.fzf-fish
+        # fishPlugins.fifc
+        # fishPlugins.sponge
+        # fishPlugins.colored-man-pages
+        # fishPlugins.tide
+        # fishPlugins.plugin-sudope
+        # fishPlugins.autopair
+        # fishPlugins.fish-bd
         # Make & build utils ----
         cmake
         gnumake
@@ -76,30 +76,27 @@
         pacman
         # Shell utils -----------
         perl
-        zoxide
-        tldr
-        bat
-        eza
-        ripgrep
-        fd
         httpie
         diffsitter
         micro
         nix-output-monitor
         minicom
-        # nh
         nvd
         comma
         nushell
         shfmt
+        # nh # in unstable
+        # tldr
+        # bat
+        # eza
+        # ripgrep
+        # fd
+        # fzf        
         # Network utils ---------
         curl
         avahi
-        syncthing
-        syncthingtray
         # System utils ----------
         p7zip
-        fzf
         findutils
         usbutils
         pciutils
@@ -154,14 +151,16 @@
       # Miscellaneous utilities ------------
         # Networking and internet -----
         cloudflare-warp
-        # protonvpn-gui
         rclone-browser
         rclone
         brave
-        # webtorrent-desktop
         linux-wifi-hotspot
         sshuttle
         warp
+        syncthing
+        syncthingtray
+        # protonvpn-gui
+        # webtorrent-desktop
         # Support ---------------------
         anydesk
         # Adtnlutils ------------------
@@ -225,7 +224,6 @@
           octaveFull
           scilab-bin
           gnuastro
-          # geogebra6
           geogebra
           sageWithDoc
 
@@ -278,7 +276,7 @@
 
     ]) ++ (with pkgs-unstable; [
       # Unstable packages -------------------
-      uv
+      # uv
       nh
       vscode
     ]) ++ (with pkgs-pinned; [

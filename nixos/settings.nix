@@ -5,7 +5,7 @@
   # For multithreading ------------------------
   environment.variables = {
     NIX_BUILD_CORES = 16;
-    FLAKE = "/run/media/sparsharay/groot/Softwares/LI2i1-14AHP9_spconfig/Nix/";
+    NH_FLAKE = "/run/media/sparsharay/groot/Softwares/LI2i1-14AHP9_spconfig/Nix/";
   };
 
   # Fish --------------------------------------
@@ -63,6 +63,13 @@
 
     # For samba ---------------------------------
     # services.samba.enable = true;
+
+    # For immich --------------------------------
+    services.immich = {
+          enable = true;
+          host = "0.0.0.0";
+          port = 2283;
+        };
 
     # For preload -------------------------------
     services.preload.enable = true;
