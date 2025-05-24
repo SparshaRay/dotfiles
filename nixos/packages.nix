@@ -9,6 +9,9 @@
     # X11 fallback for wayland ------------------
     programs.xwayland.enable = true;
 
+    # Niri --------------------------------------
+    programs.niri.enable = true;
+
     # For warp ----------------------------------
     systemd.packages = [ pkgs.cloudflare-warp ];
     systemd.targets.multi-user.wants = [ "warp-svc.service" ];
@@ -48,6 +51,9 @@
       binfmt = true;
     };
 
+    # Stirling pdf ------------------------------
+    services.stirling-pdf.enable = true;
+
     # All other packages ------------------------
     environment.systemPackages = (with pkgs; [
 
@@ -67,7 +73,7 @@
         gnumake
         automake
         autoconf
-        ninja
+        # ninja
         # bazelisk
         # Compilers -------------
         gcc
@@ -93,6 +99,7 @@
         nix-search-tv
         nushell
         shfmt
+        nixfmt-classic
         # nh # in unstable
         # tldr
         # bat
@@ -125,7 +132,7 @@
         # Input utils -----------
         ibus
         # Maintenance utils -----
-        backintime
+        # backintime
         nix-index
         pkg-config
         # Android utils ---------
@@ -196,10 +203,9 @@
         # Office and notes ------------
           libreoffice
           texliveBasic
-          sioyek
+          # sioyek
           pdfarranger
           ocrmypdf
-          stirling-pdf
           obsidian
           xournalpp
           activitywatch

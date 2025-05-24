@@ -21,11 +21,11 @@
 
   home.packages = with pkgs.fishPlugins; [
     z
-    done
+    # done
     forgit
     fzf-fish
     fifc
-    sponge
+    # sponge
     colored-man-pages
     tide
     plugin-sudope
@@ -43,7 +43,7 @@
     fzf_preview_dir_cmd = "eza -1 --all";
     fzf_diff_highlighter = "diff-so-fancy";
     fzf_history_time_format = "%d-%m-%y";
-    sponge_allow_previously_successful = "true";
+    # sponge_allow_previously_successful = "true";
   };
 
 }
