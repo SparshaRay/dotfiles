@@ -26,7 +26,7 @@
       lohit-fonts.bengali
       lohit-fonts.devanagari
       newcomputermodern
-      (nerdfonts.override { fonts = ["Iosevka"]; })
+      nerd-fonts.iosevka
       (callPackage ../fonts/HelveticaNeueCyr.nix { })
       (callPackage ../fonts/SFMono.nix { })
     ];
@@ -54,9 +54,9 @@
       };
     };
 
-    hardware.pulseaudio = {
+    services.pulseaudio = {
       enable = false;                            # ! [see bluetooth manual, set to true, debug]
-      package = pkgs.pulseaudioFull;
+      # package = pkgs.pulseaudioFull;
     };
 
     hardware.enableRedistributableFirmware = true;

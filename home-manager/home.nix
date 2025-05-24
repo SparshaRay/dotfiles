@@ -15,6 +15,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./programs # this is equivalent to ./programs/default.nix
+    ./shells
   ];
 
   nixpkgs = {

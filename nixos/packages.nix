@@ -42,6 +42,12 @@
       };
     };
 
+    # AppImage ----------------------------------
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     # All other packages ------------------------
     environment.systemPackages = (with pkgs; [
 
@@ -62,10 +68,11 @@
         automake
         autoconf
         ninja
+        # bazelisk
         # Compilers -------------
         gcc
         gfortran
-        ghc
+        # ghc
         # Git utils -------------
         gh
         git
@@ -83,6 +90,7 @@
         minicom
         nvd
         comma
+        nix-search-tv
         nushell
         shfmt
         # nh # in unstable
@@ -167,8 +175,6 @@
         glaxnimate
         copyq
         meld
-        filelight
-        skanlite
         webcamoid
         stellarium
         # KDE suit --------------------
@@ -180,14 +186,20 @@
         kdePackages.ksystemlog
         kdePackages.ktorrent
         kdePackages.kdenlive
+        kdePackages.filelight
+        kdePackages.gwenview
+        kdePackages.kde-gtk-config
+        kdePackages.plasma-systemmonitor
+        # kdePackages.skanlite
 
       # Software suit ----------------------
         # Office and notes ------------
           libreoffice
-          texliveFull
+          texliveBasic
           sioyek
           pdfarranger
           ocrmypdf
+          stirling-pdf
           obsidian
           xournalpp
           activitywatch
@@ -198,13 +210,14 @@
           pulseeffects-legacy                    # ! [import irs and eqlzr jsons]
           youtube-music
           blanket
-          vlc
+          # vlc
+          haruna
           audacity
           # davinci-resolve
         # Electronics -----------------
           arduino
           ngspice
-          kicad
+          # kicad                                # nah bro, too heavy, enable when necessary
         # Coding ----------------------
           processing
           # vscode
@@ -225,21 +238,23 @@
           scilab-bin
           gnuastro
           geogebra
-          sageWithDoc
+          sage
 
       # Ricing utils -----------------------
       # rofi
       # eww
       kdePackages.qtstyleplugin-kvantum
-      latte-dock                                # Enable when needed
+      # latte-dock                               # Broke aaaaaaaaaaaa, Enable when needed
 
       # Virtualization ---------------------
-      wineWowPackages.stableFull
+      wineWowPackages.stable
       winetricks
       quickemu
       bottles
-      appimage-run                               # ! [inject lib<>.so path via ENV manually]
-
+      # appimage-run                             # ! [inject lib<>.so path via ENV manually]
+      distrobox
+      podman                                     # ! [inject insecure null policy json]
+      boxbuddy
       # Languages --------------------------
       micromamba
       typst
@@ -265,7 +280,7 @@
       # onboard
       # fusuma
       # ydotool
-      # newm / niri
+      # niri
       # filecxx
       # wvkbd
       # kitty
@@ -279,11 +294,9 @@
       # uv
       nh
       vscode
+      # nvidia-modprobe
     ]) ++ (with pkgs-pinned; [
         ventoy-full
-        distrobox
-        podman                           # ! [inject insecure null policy json]
-        boxbuddy
     ]);
 
   # SUID wrappers --------------------------------------------------------
