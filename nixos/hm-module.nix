@@ -10,5 +10,6 @@
       # Import your home-manager configuration
       sparsharay = import ../home-manager/home.nix;
     };
+    backupFileExtension = ".bak";
   };
 }

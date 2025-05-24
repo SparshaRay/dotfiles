@@ -16,6 +16,8 @@
     # You can also split up your configuration and import pieces of it here:
     ./envs # this is equivalent to ./programs/default.nix
     ./shells
+
+    # ./firefox # this is equal to ./firefox/default.nix
   ];
 
   nixpkgs = {
