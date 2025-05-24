@@ -14,7 +14,7 @@
     inputs.scientific-fhs.nixosModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    ./programs # this is equivalent to ./programs/default.nix
+    ./envs # this is equivalent to ./programs/default.nix
     ./shells
   ];
 
@@ -53,5 +53,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 }

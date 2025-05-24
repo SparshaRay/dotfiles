@@ -2,7 +2,8 @@
 
   programs.bash = {
     enable = true;
-    completion.enable = true;
+    historySize = 1000000;
+    enableCompletion = true;
   };
-  
+
 }
