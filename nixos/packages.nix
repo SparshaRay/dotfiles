@@ -46,7 +46,7 @@
     };
 
     # AppImage ----------------------------------
-    programs.appimage = {
+    programs.appimage = {                        # ! [inject lib<>.so path via ENV manually if needed]
       enable = true;
       binfmt = true;
     };
@@ -58,16 +58,6 @@
     environment.systemPackages = (with pkgs; [
 
       # CLI and system utilities -----------
-        # Fish Plugins ----------
-        # fishPlugins.z
-        # fishPlugins.fzf-fish
-        # fishPlugins.fifc
-        # fishPlugins.sponge
-        # fishPlugins.colored-man-pages
-        # fishPlugins.tide
-        # fishPlugins.plugin-sudope
-        # fishPlugins.autopair
-        # fishPlugins.fish-bd
         # Make & build utils ----
         cmake
         gnumake
@@ -83,6 +73,7 @@
         gh
         git
         # Libraries -------------
+        gsl
         glib
         haveged
         # Package utils ---------
@@ -99,14 +90,7 @@
         nix-search-tv
         nushell
         shfmt
-        nixfmt-classic
         # nh # in unstable
-        # tldr
-        # bat
-        # eza
-        # ripgrep
-        # fd
-        # fzf        
         # Network utils ---------
         curl
         avahi
@@ -197,6 +181,7 @@
         kdePackages.gwenview
         kdePackages.kde-gtk-config
         kdePackages.plasma-systemmonitor
+        # kdePackages.qtvirtualkeyboard
         # kdePackages.skanlite
 
       # Software suit ----------------------
@@ -235,12 +220,13 @@
           gimp
           inkscape
           krita
+          gyroflow
         # CAD and CFD -----------------
           freecad
           xflr5
           blender
         # Scientific ------------------
-          octaveFull
+          octave
           scilab-bin
           gnuastro
           geogebra
@@ -257,13 +243,13 @@
       winetricks
       quickemu
       bottles
-      # appimage-run                             # ! [inject lib<>.so path via ENV manually]
       distrobox
       podman                                     # ! [inject insecure null policy json]
       boxbuddy
       # Languages --------------------------
       micromamba
       typst
+      # nodejs
       # ruby
       # rustc
       # cargo
@@ -286,9 +272,9 @@
       # onboard
       # fusuma
       # ydotool
-      # niri
       # filecxx
       # wvkbd
+      # squeekboard
       # kitty
 
       # For fun ----------------------------
@@ -297,7 +283,6 @@
 
     ]) ++ (with pkgs-unstable; [
       # Unstable packages -------------------
-      # uv
       nh
       vscode
       # nvidia-modprobe
