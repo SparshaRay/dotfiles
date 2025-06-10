@@ -6,6 +6,9 @@
 }: {
   # Packages -------------------------------------------------------------
 
+    # Fingerprint driver ------------------------
+    services.fprintd.enable = true;
+
     # X11 fallback for wayland ------------------
     programs.xwayland.enable = true;
 
@@ -270,8 +273,10 @@
       # maliit-framework
       # maliit-keyboard
       # onboard
-      # fusuma
-      # ydotool
+      fusuma
+      ydotool
+      # libinput-gestures
+      # wmctrl
       # filecxx
       # wvkbd
       # squeekboard
@@ -287,7 +292,7 @@
       vscode
       # nvidia-modprobe
     ]) ++ (with pkgs-pinned; [
-        ventoy-full
+      ventoy-full
     ]);
 
   # SUID wrappers --------------------------------------------------------

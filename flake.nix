@@ -13,6 +13,12 @@
 
     # scientific-fhs
     scientific-fhs.url = "github:Vortriz/scientific-fhs";
+
+    inputactions = {
+      url = "github:taj-ny/InputActions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {
@@ -27,6 +33,11 @@
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
+
+    environment.systemPackages = [
+      inputs.inputactions.packages.${nixpkgs.system}.inputactions-kwin
+    ];
+
     nixosConfigurations = {
       # replace with your hostname
       SparshaRay = nixpkgs.lib.nixosSystem rec {

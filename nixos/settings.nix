@@ -66,10 +66,10 @@
 
     # For immich --------------------------------
     services.immich = {
-          enable = true;
-          host = "0.0.0.0";
-          port = 2283;
-        };
+      enable = true;
+      host = "127.0.0.1";
+      port = 2200;
+    };
 
     # For preload -------------------------------
     services.preload.enable = true;
