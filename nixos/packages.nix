@@ -148,6 +148,7 @@
         lm_sensors
         # Benchmark & stress -----
         geekbench
+        peakperf
         stress-ng
 
       # Miscellaneous utilities ------------
@@ -200,6 +201,7 @@
         # Messaging -------------------
           telegram-desktop
           discord
+          slack
         # Music and video -------------
           pulseeffects-legacy                    # ! [import irs and eqlzr jsons]
           youtube-music

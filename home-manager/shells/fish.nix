@@ -7,6 +7,7 @@
     };
     shellAliases = {
             ls = "eza";
+            alien = "nix --extra-experimental-features \"nix-command flakes\" run github:thiagokokada/nix-alien --";
             # cd = "z"; # doesnt work for some reason
     };
   };
