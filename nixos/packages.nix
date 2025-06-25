@@ -93,6 +93,7 @@
         nix-search-tv
         nushell
         shfmt
+        tree
         # nh # in unstable
         # Network utils ---------
         curl
@@ -110,6 +111,7 @@
         unixtools.quota
         # Wireless utils --------
         iw
+        nethogs
         iproute2
         dnsmasq
         hostapd
