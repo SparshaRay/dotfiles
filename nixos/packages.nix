@@ -20,16 +20,7 @@
     systemd.targets.multi-user.wants = [ "warp-svc.service" ];
 
     # Fish shell ---------------------------------
-    programs.fish = {
-        enable = true;
-    #     shellInit = ''
-    #       eval "$(micromamba shell hook --shell fish)"
-    #       direnv hook fish | source
-    #     '';
-    #     # interactiveShellInit = ''
-    #     #   set fish_greeting # Disable greeting
-    #     # '';
-    };
+    programs.fish.enable = true;
 
     # programs.nh.enable = true;
     programs.java.enable = true;
@@ -53,9 +44,6 @@
       enable = true;
       binfmt = true;
     };
-
-    # Stirling pdf ------------------------------
-    services.stirling-pdf.enable = true;
 
     # All other packages ------------------------
     environment.systemPackages = (with pkgs; [
@@ -94,6 +82,7 @@
         nushell
         shfmt
         tree
+        yazi
         # nh # in unstable
         # Network utils ---------
         curl

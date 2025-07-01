@@ -48,6 +48,12 @@
     homeDirectory = "/home/sparsharay";
   };
 
+  # Signature PDF
+  services.signaturepdf = {
+    enable = true;
+    port = 8080;
+  };
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
 
