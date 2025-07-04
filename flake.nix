@@ -11,9 +11,6 @@
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # scientific-fhs
-    scientific-fhs.url = "github:Vortriz/scientific-fhs";
-
     inputactions = {
       url = "github:taj-ny/InputActions";
       inputs.nixpkgs.follows = "nixpkgs";

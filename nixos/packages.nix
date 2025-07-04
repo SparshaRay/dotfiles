@@ -15,6 +15,9 @@
     # Niri --------------------------------------
     programs.niri.enable = true;
 
+    # KDE connect -------------------------------
+    programs.kdeconnect.enable = true;
+
     # For warp ----------------------------------
     systemd.packages = [ pkgs.cloudflare-warp ];
     systemd.targets.multi-user.wants = [ "warp-svc.service" ];
@@ -87,6 +90,7 @@
         # Network utils ---------
         curl
         avahi
+        ntfy-sh
         # System utils ----------
         p7zip
         findutils
@@ -245,13 +249,13 @@
       # Languages --------------------------
       micromamba
       typst
+      julia-bin
       # nodejs
       # ruby
       # rustc
       # cargo
       # meson
       # uv
-      # julia                                    # Install via scientific fhs
       # docker
       # wolfram-engine                           # install wljs notebook in ubuntu
       # wolfram-notebook
@@ -277,7 +281,7 @@
 
       # For fun ----------------------------
       oneko
-      neofetch
+      fastfetch
 
     ]) ++ (with pkgs-unstable; [
       # Unstable packages -------------------

@@ -26,7 +26,13 @@
       lohit-fonts.bengali
       lohit-fonts.devanagari
       newcomputermodern
+      libertine
       nerd-fonts.iosevka
+      iosevka
+      iosevka-comfy.comfy-wide
+      nerd-fonts.noto
+      nerd-fonts.fira-mono
+      maple-mono.NF
       (callPackage ../fonts/HelveticaNeueCyr.nix { })
       (callPackage ../fonts/SFMono.nix { })
     ];
