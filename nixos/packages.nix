@@ -1,7 +1,8 @@
 {
   pkgs,
-  pkgs-unstable,
+  # pkgs-unstable,
   pkgs-pinned,
+  inputs,
   ...
 }: {
   # Packages -------------------------------------------------------------
@@ -13,7 +14,13 @@
     programs.xwayland.enable = true;
 
     # Niri --------------------------------------
-    programs.niri.enable = true;
+    imports = [inputs.niri.nixosModules.niri];
+    nixpkgs.overlays = [inputs.niri.overlays.niri];
+    programs.niri = {
+        enable = true;
+        package = pkgs.niri-unstable;
+    };
+    niri-flake.cache.enable = true;
 
     # KDE connect -------------------------------
     programs.kdeconnect.enable = true;
@@ -212,6 +219,7 @@
         # Coding ----------------------
           processing
           # vscode
+          zed-editor
           github-desktop
         # Image processing ------------
           siril
@@ -223,6 +231,7 @@
           gyroflow
         # CAD and CFD -----------------
           freecad
+          openmvg
           xflr5
           blender
         # Scientific ------------------
@@ -256,7 +265,7 @@
       # cargo
       # meson
       # uv
-      # docker
+      docker
       # wolfram-engine                           # install wljs notebook in ubuntu
       # wolfram-notebook
 
@@ -270,8 +279,8 @@
       # maliit-framework
       # maliit-keyboard
       # onboard
-      fusuma
-      ydotool
+      # fusuma
+      # ydotool
       # libinput-gestures
       # wmctrl
       # filecxx
@@ -282,8 +291,11 @@
       # For fun ----------------------------
       oneko
       fastfetch
+      cpufetch
+      pokeget-rs
+      uwuify
 
-    ]) ++ (with pkgs-unstable; [
+    # ]) ++ (with pkgs-unstable; [
       # Unstable packages -------------------
       nh
       vscode

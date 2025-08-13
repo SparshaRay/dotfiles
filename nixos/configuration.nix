@@ -43,6 +43,10 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      allowUnfreePredicate = _: true;
+      permittedInsecurePackages = [
+        "libsoup-2.74.3"
+      ];
     };
   };
 
@@ -51,7 +55,7 @@
   in {
     settings = {
       # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
+      experimental-features = "nix-command flakes pipe-operators";
     };
     # Opinionated: disable channels
     channel.enable = false;
