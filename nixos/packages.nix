@@ -93,6 +93,7 @@
         shfmt
         tree
         yazi
+        aichat
         # nh # in unstable
         # Network utils ---------
         curl
@@ -119,7 +120,7 @@
         wirelesstools
         librespeed-cli
         # Input utils -----------
-        ibus
+        # ibus
         # Maintenance utils -----
         # backintime
         nix-index
@@ -187,7 +188,8 @@
         kdePackages.gwenview
         kdePackages.kde-gtk-config
         kdePackages.plasma-systemmonitor
-        # kdePackages.qtvirtualkeyboard
+        kdePackages.korganizer
+        kdePackages.qtvirtualkeyboard
         # kdePackages.skanlite
 
       # Software suit ----------------------
@@ -239,7 +241,7 @@
           scilab-bin
           gnuastro
           geogebra
-          sage
+          # sage
 
       # Ricing utils -----------------------
       # rofi
@@ -270,6 +272,10 @@
       # wolfram-notebook
 
       # Bengali keyboard -------------------
+      # fcitx5
+      # kdePackages.fcitx5-configtool
+      # kdePackages.fcitx5-with-addons
+      # kdePackages.fcitx5-qt
       # fcitx5-openbangla-keyboard
       # ibus-engines.openbangla-keyboard
 
@@ -302,6 +308,7 @@
       # nvidia-modprobe
     ]) ++ (with pkgs-pinned; [
       ventoy-full
+      sage
     ]);
 
   # SUID wrappers --------------------------------------------------------

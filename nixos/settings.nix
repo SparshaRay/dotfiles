@@ -22,6 +22,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       open-fonts
+      google-fonts
       helvetica-neue-lt-std
       lohit-fonts.bengali
       lohit-fonts.devanagari
