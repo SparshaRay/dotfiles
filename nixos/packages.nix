@@ -241,7 +241,9 @@
           scilab-bin
           gnuastro
           geogebra
-          # sage
+          # sage                                 # Broken and heavy, enable when necessary
+        # HPC -------------------------
+          # htcondor                             # in pinned
 
       # Ricing utils -----------------------
       # rofi
@@ -308,7 +310,7 @@
       # nvidia-modprobe
     ]) ++ (with pkgs-pinned; [
       ventoy-full
-      sage
+      htcondor
     ]);
 
   # SUID wrappers --------------------------------------------------------

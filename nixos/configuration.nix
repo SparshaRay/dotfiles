@@ -43,6 +43,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      allowBroken = true;
       allowUnfreePredicate = _: true;
       permittedInsecurePackages = [
         "libsoup-2.74.3"
