@@ -93,8 +93,7 @@
         shfmt
         tree
         yazi
-        aichat
-        # nh # in unstable
+        nh
         # Network utils ---------
         curl
         avahi
@@ -122,7 +121,6 @@
         # Input utils -----------
         # ibus
         # Maintenance utils -----
-        # backintime
         nix-index
         pkg-config
         # Android utils ---------
@@ -157,8 +155,8 @@
       # Miscellaneous utilities ------------
         # Networking and internet -----
         cloudflare-warp
-        rclone-browser
-        rclone
+        # rclone-browser
+        # rclone
         brave
         linux-wifi-hotspot
         sshuttle
@@ -174,6 +172,7 @@
         copyq
         meld
         webcamoid
+        baobab
         stellarium
         # KDE suit --------------------
         kdePackages.kate
@@ -184,7 +183,6 @@
         kdePackages.ksystemlog
         kdePackages.ktorrent
         kdePackages.kdenlive
-        kdePackages.filelight
         kdePackages.gwenview
         kdePackages.kde-gtk-config
         kdePackages.plasma-systemmonitor
@@ -205,7 +203,7 @@
         # Messaging -------------------
           telegram-desktop
           discord
-          slack
+          # slack
         # Music and video -------------
           pulseeffects-legacy                    # ! [import irs and eqlzr jsons]
           youtube-music
@@ -220,8 +218,8 @@
           # kicad                                # nah bro, too heavy, enable when necessary
         # Coding ----------------------
           processing
-          # vscode
-          zed-editor
+          vscode
+          # zed-editor
           github-desktop
         # Image processing ------------
           siril
@@ -240,10 +238,14 @@
           octave
           scilab-bin
           gnuastro
-          geogebra
-          # sage                                 # Broken and heavy, enable when necessary
+          geogebra6
+          sage
         # HPC -------------------------
           # htcondor                             # in pinned
+        # LLMs/Local GenAI ------------
+          lmstudio
+          aichat
+          gemini-cli
 
       # Ricing utils -----------------------
       # rofi
@@ -260,16 +262,16 @@
       podman                                     # ! [inject insecure null policy json]
       boxbuddy
       # Languages --------------------------
-      micromamba
+      # micromamba
       typst
       julia-bin
+      docker
+      uv
       # nodejs
       # ruby
       # rustc
       # cargo
       # meson
-      # uv
-      docker
       # wolfram-engine                           # install wljs notebook in ubuntu
       # wolfram-notebook
 
@@ -305,12 +307,17 @@
 
     # ]) ++ (with pkgs-unstable; [
       # Unstable packages -------------------
-      nh
-      vscode
+      # nh
+      # vscode
       # nvidia-modprobe
     ]) ++ (with pkgs-pinned; [
       ventoy-full
       htcondor
+      # cmake build fails
+      slack
+      micromamba
+      rclone
+      rclone-browser
     ]);
 
   # SUID wrappers --------------------------------------------------------

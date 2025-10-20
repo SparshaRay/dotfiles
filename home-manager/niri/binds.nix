@@ -23,7 +23,7 @@ in {
             "Mod+Shift+Slash".action = show-hotkey-overlay;
 
             "Ctrl+Print" = {
-                action = screenshot-window;
+                action.screenshot-window = [];
                 hotkey-overlay.title = "Take screenshot of focused window";
             };
             

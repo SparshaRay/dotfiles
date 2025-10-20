@@ -12,10 +12,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     # Gestures
-    inputactions = {
-      url = "github:taj-ny/InputActions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # inputactions = {
+    #   url = "github:taj-ny/InputActions";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Niri
     niri.url = "github:sodiboo/niri-flake";
