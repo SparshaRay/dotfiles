@@ -79,10 +79,14 @@
         haveged
         # Package utils ---------
         pacman
+        yay
         # Shell utils -----------
+        htop
+        iotop
+        smartmontools
         perl
         httpie
-        diffsitter
+        # diffsitter # broken
         micro
         nix-output-monitor
         minicom
@@ -129,7 +133,6 @@
         aescrypt
         unrar
         ffmpeg_7-full
-        preload
         samba
 
       # Hardware utilities -----------------
@@ -155,8 +158,8 @@
       # Miscellaneous utilities ------------
         # Networking and internet -----
         cloudflare-warp
-        # rclone-browser
-        # rclone
+        rclone-browser
+        rclone
         brave
         linux-wifi-hotspot
         sshuttle
@@ -165,6 +168,11 @@
         syncthingtray
         # protonvpn-gui
         # webtorrent-desktop
+        immich-go
+        immich-cli
+        immich-public-proxy
+        miraclecast
+        gnome-network-displays
         # Support ---------------------
         anydesk
         # Adtnlutils ------------------
@@ -174,6 +182,8 @@
         webcamoid
         baobab
         stellarium
+        nautilus
+        # gnomeExtensions.rclone-manager
         # KDE suit --------------------
         kdePackages.kate
         kdePackages.kcalc
@@ -203,7 +213,7 @@
         # Messaging -------------------
           telegram-desktop
           discord
-          # slack
+          slack
         # Music and video -------------
           pulseeffects-legacy                    # ! [import irs and eqlzr jsons]
           youtube-music
@@ -238,6 +248,7 @@
           octave
           scilab-bin
           gnuastro
+          graphviz
           geogebra6
           sage
         # HPC -------------------------
@@ -262,7 +273,7 @@
       podman                                     # ! [inject insecure null policy json]
       boxbuddy
       # Languages --------------------------
-      # micromamba
+      micromamba
       typst
       julia-bin
       docker
@@ -314,10 +325,10 @@
       ventoy-full
       htcondor
       # cmake build fails
-      slack
-      micromamba
-      rclone
-      rclone-browser
+      # micromamba
+      # stellarium
+      # geogebra
+      # sage
     ]);
 
   # SUID wrappers --------------------------------------------------------

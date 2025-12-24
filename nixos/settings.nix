@@ -73,13 +73,13 @@
 
     # For immich --------------------------------
     services.immich = {
-      enable = true;
-      host = "127.0.0.1";
-      port = 2200;
+      # enable = true;
+      # host = "127.0.0.1";
+      # port = 2200;
     };
 
     # For preload -------------------------------
-    services.preload.enable = true;
+    # services.preload.enable = true; # permanently removed from nixpkgs
 
     # For wine ----------------------------------
     hardware.graphics.enable = true;
@@ -135,6 +135,12 @@
 
     # For touchpad ------------------------------
     services.libinput.enable = true;
+
+    # For runtimes ------------------------------
+    services.uptimed.enable = true;
+
+    # For flatpak -------------------------------
+    services.flatpak.enable = true;
 
   # Device settings ------------------------------------------------------
 
