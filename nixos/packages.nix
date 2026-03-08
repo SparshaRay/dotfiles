@@ -86,7 +86,6 @@
         smartmontools
         perl
         httpie
-        # diffsitter # broken
         micro
         nix-output-monitor
         minicom
@@ -104,6 +103,7 @@
         ntfy-sh
         # System utils ----------
         p7zip
+        zpaq
         findutils
         usbutils
         pciutils
@@ -113,6 +113,7 @@
         exfatprogs
         ntfs3g
         unixtools.quota
+        aha
         # Wireless utils --------
         iw
         nethogs
@@ -122,8 +123,6 @@
         iptables
         wirelesstools
         librespeed-cli
-        # Input utils -----------
-        # ibus
         # Maintenance utils -----
         nix-index
         pkg-config
@@ -133,6 +132,7 @@
         aescrypt
         unrar
         ffmpeg_7-full
+        imagemagick
         samba
 
       # Hardware utilities -----------------
@@ -159,9 +159,11 @@
         # Networking and internet -----
         cloudflare-warp
         rclone-browser
+        # rclone-ui
         rclone
         brave
-        linux-wifi-hotspot
+        # parabolic
+        yt-dlp
         sshuttle
         warp
         syncthing
@@ -173,19 +175,19 @@
         immich-public-proxy
         miraclecast
         gnome-network-displays
-        # Support ---------------------
         anydesk
         # Adtnlutils ------------------
+        vicinae
         glaxnimate
         copyq
         meld
         webcamoid
         baobab
         stellarium
-        nautilus
-        # gnomeExtensions.rclone-manager
+        # nautilus
         # KDE suit --------------------
         kdePackages.kate
+        kdePackages.qrca
         kdePackages.kcalc
         kdePackages.kdeconnect-kde
         kdePackages.partitionmanager
@@ -198,7 +200,9 @@
         kdePackages.plasma-systemmonitor
         kdePackages.korganizer
         kdePackages.qtvirtualkeyboard
-        # kdePackages.skanlite
+        # Keyboard --------------------
+        maliit-keyboard
+        maliit-framework
 
       # Software suit ----------------------
         # Office and notes ------------
@@ -215,8 +219,8 @@
           discord
           slack
         # Music and video -------------
-          pulseeffects-legacy                    # ! [import irs and eqlzr jsons]
-          youtube-music
+          # pulseeffects-legacy                    # ! [import irs and eqlzr jsons]
+          pear-desktop
           blanket
           # vlc
           haruna
@@ -225,7 +229,7 @@
         # Electronics -----------------
           arduino
           ngspice
-          # kicad                                # nah bro, too heavy, enable when necessary
+          # kicad                                  # nah bro, too heavy, enable when necessary
         # Coding ----------------------
           processing
           vscode
@@ -238,34 +242,34 @@
           gimp
           inkscape
           krita
-          gyroflow
+          # gyroflow
         # CAD and CFD -----------------
           freecad
           openmvg
           xflr5
           blender
+          rerun
         # Scientific ------------------
           octave
           scilab-bin
           gnuastro
           graphviz
           geogebra6
-          sage
+          sage                                   # enable when needed
         # HPC -------------------------
           # htcondor                             # in pinned
         # LLMs/Local GenAI ------------
-          lmstudio
+          # lmstudio
           aichat
           gemini-cli
 
-      # Ricing utils -----------------------
+      # Ricing utils -----------------------     # migrate to niri workflow
       # rofi
       # eww
       kdePackages.qtstyleplugin-kvantum
-      # latte-dock                               # Broke aaaaaaaaaaaa, Enable when needed
 
       # Virtualization ---------------------
-      wineWowPackages.stable
+      wineWow64Packages.stable
       winetricks
       quickemu
       bottles
@@ -286,28 +290,9 @@
       # wolfram-engine                           # install wljs notebook in ubuntu
       # wolfram-notebook
 
-      # Bengali keyboard -------------------
-      # fcitx5
-      # kdePackages.fcitx5-configtool
-      # kdePackages.fcitx5-with-addons
-      # kdePackages.fcitx5-qt
-      # fcitx5-openbangla-keyboard
-      # ibus-engines.openbangla-keyboard
-
       # # Pending --------------------------
       # !TODO
-      # ibus-avro
-      # maliit-framework
-      # maliit-keyboard
-      # onboard
-      # fusuma
-      # ydotool
-      # libinput-gestures
-      # wmctrl
-      # filecxx
-      # wvkbd
-      # squeekboard
-      # kitty
+      # filecxx or equivalent
 
       # For fun ----------------------------
       oneko
@@ -321,14 +306,16 @@
       # nh
       # vscode
       # nvidia-modprobe
+
     ]) ++ (with pkgs-pinned; [
+
       ventoy-full
       htcondor
-      # cmake build fails
-      # micromamba
-      # stellarium
-      # geogebra
-      # sage
+
+      # build fails
+      pulseeffects-legacy
+      # gyroflow # full broken
+
     ]);
 
   # SUID wrappers --------------------------------------------------------

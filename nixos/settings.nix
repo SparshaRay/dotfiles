@@ -11,6 +11,11 @@
   # Fish --------------------------------------
   users.defaultUserShell = pkgs.fish;
 
+  environment.variables = {
+    MAMBA_ROOT_PREFIX= "/home/sparsharay/micromamba";
+    QT_IM_MODULE = "maliit";
+  };
+
   # virt-manager ------------------------------
   # programs.virt-manager.enable = true;
   # users.groups.libvirtd.members = ["sparsharay"];
@@ -19,24 +24,35 @@
 
   # Fonts ----------------------------------------------------------------
   fonts = {
+
     enableDefaultPackages = true;
     packages = with pkgs; [
+
       open-fonts
       google-fonts
-      helvetica-neue-lt-std
+
       lohit-fonts.bengali
       lohit-fonts.devanagari
+
       newcomputermodern
       libertine
-      nerd-fonts.iosevka
+
       iosevka
       iosevka-comfy.comfy-wide
+
+      nerd-fonts.iosevka
       nerd-fonts.noto
       nerd-fonts.fira-mono
+
       maple-mono.NF
+
+      helvetica-neue-lt-std
+
       (callPackage ../fonts/HelveticaNeueCyr.nix { })
       (callPackage ../fonts/SFMono.nix { })
+
     ];
+
     fontconfig = {
       defaultFonts = {                             # Order decides fallback
         serif     = [ "Noto Sans, Noto Sans Bengali, Noto Sans Devanagari"];
@@ -44,6 +60,7 @@
         monospace = [ "Iosevka Md Ex Obl" ];
       };
     };
+    
   };
 
   # Services and setups --------------------------------------------------
@@ -87,9 +104,6 @@
 
     # For cpupower ------------------------------
     services.cpupower-gui.enable = true;
-
-    # For ADB -----------------------------------
-    programs.adb.enable = true;
 
     # For hotspot -------------------------------
     # services.hostapd.enable = true;
@@ -214,10 +228,10 @@
 
     # Enable ly ---------------------------------
     services.displayManager.ly.enable = true;
-    services.displayManager.ly.settings = {
-      asterisk = ".";
-      clock = "%c";
-    };
+      services.displayManager.ly.settings = {
+        asterisk = ".";
+        clock = "%c";
+      };
 
     # ! Import ICM file separately --------------
     # [sRGB Color Space Profile.icm]
@@ -249,4 +263,21 @@
   #     PasswordAuthentication = false;
   #   };
   # };
+
+  # Keyboard settings ----------------------------------------------------
+
+    # Bengali keyboard --------------------------
+    i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-openbangla-keyboard
+        kdePackages.fcitx5-qt
+        fcitx5-gtk
+      ];
+    };
+  };
+
 }

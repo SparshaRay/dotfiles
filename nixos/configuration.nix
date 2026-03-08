@@ -24,7 +24,7 @@
     ./hm-module.nix
   ];
 
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   nixpkgs = {
     # You can add overlays here
@@ -91,7 +91,7 @@
   };
 
   # Limit configs, switch to LTS kernel, and make swap ------------------
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.systemd-boot.configurationLimit = 16;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   swapDevices = [{
     device = "/swapfile";
