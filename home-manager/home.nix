@@ -64,5 +64,5 @@
   home.stateVersion = "25.05";
 
   # swww
-  services.swww.enable = true;
+  services.awww.enable = true;
 }

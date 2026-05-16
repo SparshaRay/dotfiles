@@ -6,7 +6,7 @@
         # ./xdg.nix
 
         # ./niri-shell.nix
-        ./niriswitcher.nix
+        # ./niriswitcher.nix
 
         ./lib.nix
     ];

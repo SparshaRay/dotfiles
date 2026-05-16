@@ -156,6 +156,10 @@
     # For flatpak -------------------------------
     services.flatpak.enable = true;
 
+    # For warp client ---------------------------
+    services.cloudflare-warp.enable = true;
+    services.cloudflare-warp.openFirewall = true;
+
   # Device settings ------------------------------------------------------
 
     # Bootloader --------------------------------

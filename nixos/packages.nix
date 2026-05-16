@@ -26,8 +26,8 @@
     programs.kdeconnect.enable = true;
 
     # For warp ----------------------------------
-    systemd.packages = [ pkgs.cloudflare-warp ];
-    systemd.targets.multi-user.wants = [ "warp-svc.service" ];
+    # systemd.packages = [ pkgs.cloudflare-warp ];
+    # systemd.targets.multi-user.wants = [ "warp-svc.service" ];
 
     # Fish shell ---------------------------------
     programs.fish.enable = true;
@@ -114,6 +114,7 @@
         ntfs3g
         unixtools.quota
         aha
+        lshw
         # Wireless utils --------
         iw
         nethogs
@@ -123,6 +124,8 @@
         iptables
         wirelesstools
         librespeed-cli
+        # wireshark-cli
+        ethtool
         # Maintenance utils -----
         nix-index
         pkg-config
@@ -130,6 +133,7 @@
         android-tools
         # Misc utils ------------
         aescrypt
+        age
         unrar
         ffmpeg_7-full
         imagemagick
@@ -157,7 +161,7 @@
 
       # Miscellaneous utilities ------------
         # Networking and internet -----
-        cloudflare-warp
+        # cloudflare-warp
         rclone-browser
         # rclone-ui
         rclone
@@ -200,6 +204,8 @@
         kdePackages.plasma-systemmonitor
         kdePackages.korganizer
         kdePackages.qtvirtualkeyboard
+        kdePackages.dolphin-plugins
+        kdePackages.kleopatra
         # Keyboard --------------------
         maliit-keyboard
         maliit-framework
@@ -228,7 +234,9 @@
           # davinci-resolve
         # Electronics -----------------
           arduino
+          qucs-s
           ngspice
+          # librepcb
           # kicad                                  # nah bro, too heavy, enable when necessary
         # Coding ----------------------
           processing
@@ -237,15 +245,17 @@
           github-desktop
         # Image processing ------------
           siril
+          rapidraw
+          ansel
           rawtherapee
-          darktable
-          gimp
           inkscape
           krita
-          # gyroflow
+          penpot-desktop
+          gyroflow
         # CAD and CFD -----------------
           freecad
-          openmvg
+          colmap
+          meshlab
           xflr5
           blender
           rerun
@@ -255,7 +265,8 @@
           gnuastro
           graphviz
           geogebra6
-          sage                                   # enable when needed
+          numbat
+          # sage                                 # enable when needed
         # HPC -------------------------
           # htcondor                             # in pinned
         # LLMs/Local GenAI ------------
@@ -272,7 +283,7 @@
       wineWow64Packages.stable
       winetricks
       quickemu
-      bottles
+      # bottles
       distrobox
       podman                                     # ! [inject insecure null policy json]
       boxbuddy
@@ -313,8 +324,9 @@
       htcondor
 
       # build fails
+      bottles
       pulseeffects-legacy
-      # gyroflow # full broken
+      librepcb
 
     ]);
 
