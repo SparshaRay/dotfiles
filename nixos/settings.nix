@@ -31,18 +31,23 @@
       open-fonts
       google-fonts
 
+      noto-fonts
+      noto-fonts-cjk-sans
+
       lohit-fonts.bengali
       lohit-fonts.devanagari
 
       newcomputermodern
-      libertine
+      libertinus
 
       iosevka
       iosevka-comfy.comfy-wide
 
       nerd-fonts.iosevka
       nerd-fonts.noto
+      nerd-fonts.geist-mono
       nerd-fonts.fira-mono
+      nerd-fonts.symbols-only
 
       maple-mono.NF
 
@@ -50,14 +55,16 @@
 
       (callPackage ../fonts/HelveticaNeueCyr.nix { })
       (callPackage ../fonts/SFMono.nix { })
+      (callPackage ../fonts/LigSFMonoNF.nix { })
 
     ];
 
     fontconfig = {
-      defaultFonts = {                             # Order decides fallback
-        serif     = [ "Noto Sans, Noto Sans Bengali, Noto Sans Devanagari"];
-        sansSerif = [ "Noto Sans, Noto Sans Bengali, Noto Sans Devanagari"];
-        monospace = [ "Iosevka Md Ex Obl" ];
+      enable = true;
+      defaultFonts = {
+        serif     = [ "Noto Serif" "Noto Sans Bengali" "Noto Sans Devanagari" "Symbols Nerd Font" ];
+        sansSerif = [ "Noto Sans"  "Noto Sans Bengali" "Noto Sans Devanagari" "Symbols Nerd Font" ];
+        monospace = [ "Iosevka Md Ex Obl" "Maple Mono NF" "Symbols Nerd Font" ];
       };
     };
     

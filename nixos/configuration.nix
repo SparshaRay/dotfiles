@@ -26,6 +26,13 @@
 
   virtualisation.docker.enable = true;
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    # Ensure proper portal targeting for Plasma
+    config.common.default = "kde";
+  };
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -90,6 +97,8 @@
     };
   };
 
+  security.polkit.enable = true;
+
   # Limit configs, switch to LTS kernel, and make swap ------------------
   boot.loader.systemd-boot.configurationLimit = 16;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -99,5 +108,5 @@
   }];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }

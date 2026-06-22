@@ -20,6 +20,13 @@
     # Niri
     niri.url = "github:sodiboo/niri-flake";
 
+    # Nix Search TV
+    nix-search-tv-script = {
+            url = "https://raw.githubusercontent.com/Vortriz/nix-search-tv/refs/heads/main/nixpkgs.sh";
+            flake = false;
+            type = "file";
+        };
+
   };
 
   outputs = {

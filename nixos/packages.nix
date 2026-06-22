@@ -14,13 +14,13 @@
     programs.xwayland.enable = true;
 
     # Niri --------------------------------------
-    imports = [inputs.niri.nixosModules.niri];
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
-    programs.niri = {
-        enable = true;
-        package = pkgs.niri-unstable;
-    };
-    niri-flake.cache.enable = true;
+    # imports = [inputs.niri.nixosModules.niri];
+    # nixpkgs.overlays = [inputs.niri.overlays.niri];
+    # programs.niri = {
+    #     enable = true;
+    #     package = pkgs.niri-unstable;
+    # };
+    # niri-flake.cache.enable = true;
 
     # KDE connect -------------------------------
     programs.kdeconnect.enable = true;
@@ -55,6 +55,15 @@
       binfmt = true;
     };
 
+    # Local LLMs --------------------------------
+#     services.open-webui = {
+#       enable = true;
+#       port   = 8083;
+#     };
+#     services.ollama = {
+#       enable = true;
+#     };
+
     # All other packages ------------------------
     environment.systemPackages = (with pkgs; [
 
@@ -69,10 +78,11 @@
         # Compilers -------------
         gcc
         gfortran
-        # ghc
+        ghc
         # Git utils -------------
         gh
         git
+        jujutsu
         # Libraries -------------
         gsl
         glib
@@ -90,6 +100,7 @@
         nix-output-monitor
         minicom
         nvd
+        nix-search-tv
         comma
         nix-search-tv
         nushell
@@ -97,6 +108,8 @@
         tree
         yazi
         nh
+        wl-clipboard-rs
+        trash-cli
         # Network utils ---------
         curl
         avahi
@@ -206,20 +219,29 @@
         kdePackages.qtvirtualkeyboard
         kdePackages.dolphin-plugins
         kdePackages.kleopatra
+        kdePackages.baloo
         # Keyboard --------------------
         maliit-keyboard
         maliit-framework
+        # Language check --------------
+        languagetool
+        eloquent
+        hunspell
+        hunspellDicts.en-us
+        enchant
+        harper
 
       # Software suit ----------------------
         # Office and notes ------------
           libreoffice
+          onlyoffice-desktopeditors
           texliveBasic
           # sioyek
           pdfarranger
           ocrmypdf
           obsidian
           xournalpp
-          activitywatch
+          # activitywatch                          # Build failure
         # Messaging -------------------
           telegram-desktop
           discord
@@ -251,7 +273,7 @@
           inkscape
           krita
           penpot-desktop
-          gyroflow
+          # gyroflow                               # frequent build failures
         # CAD and CFD -----------------
           freecad
           colmap
@@ -272,7 +294,8 @@
         # LLMs/Local GenAI ------------
           # lmstudio
           aichat
-          gemini-cli
+          codex
+          antigravity-cli
 
       # Ricing utils -----------------------     # migrate to niri workflow
       # rofi
@@ -293,6 +316,8 @@
       julia-bin
       docker
       uv
+      pixi
+      mise
       # nodejs
       # ruby
       # rustc
@@ -324,7 +349,7 @@
       htcondor
 
       # build fails
-      bottles
+      # bottles # via flatpak
       pulseeffects-legacy
       librepcb
 

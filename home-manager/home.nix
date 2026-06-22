@@ -15,7 +15,7 @@
     # You can also split up your configuration and import pieces of it here:
     ./envs # this is equivalent to ./programs/default.nix
     ./shells
-    ./niri
+    # ./niri
 
     # ./firefox # this is equal to ./firefox/default.nix
   ];
@@ -61,8 +61,23 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 
   # swww
   services.awww.enable = true;
+
+  # nix-search-tv
+  home.packages = [
+      pkgs.nix-search-tv
+      (
+        inputs.nix-search-tv-script
+        |> builtins.readFile
+        |> pkgs.writeShellScriptBin "ns"
+      )
+  ];
+
+  xdg.configFile."nix-search-tv/config.json".text = lib.toJSON {
+      indexes = ["nixpkgs" "nixos" "home-manager" "nur" "noogle"];
+  };
+
 }
